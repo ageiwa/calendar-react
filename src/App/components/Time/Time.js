@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './style.css';
 
 const Time = () => {
-    const [time, setTime] = useState('');
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
 
     setTimeout(() => setTime(new Date().toLocaleTimeString()), 1000);
 
