@@ -1,0 +1,19 @@
+.slide-days {
+    margin-left: -400px;
+    width: 1200px;
+    display: flex;
+}
+
+.container-days {
+    width: 400px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

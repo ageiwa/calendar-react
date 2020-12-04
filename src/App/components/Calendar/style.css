@@ -1,0 +1,10 @@
+.calendar {
+    color: #fff;
+}
+
+.wrap-slide {
+    margin-top: 15px;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+}
