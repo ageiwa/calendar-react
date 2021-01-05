@@ -3,12 +3,17 @@ import './style.css';
 
 const SlideDays = () => {
     const gDT = new Date();
+
+    const prevMonth = [];
     const curMonth = [];
+    const nextMonth = [];
 
-    loadNum();
+    loadNum(gDT.getFullYear(), gDT.getMonth()-1, prevMonth);
+    loadNum(gDT.getFullYear(), gDT.getMonth(), curMonth);
+    loadNum(gDT.getFullYear(), gDT.getMonth()+1, nextMonth);
 
-    function loadNum() {
-        const lDT = new Date(gDT.getFullYear(), gDT.getMonth(), 1);
+    function loadNum(pYY, pMM, pArray) {
+        const lDT = new Date(pYY, pMM, 1);
 
         let number = 1,
             firstDay = lDT.getDay() - 1 === -1 ? 6 : lDT.getDay() - 1;
@@ -18,21 +23,35 @@ const SlideDays = () => {
             if (lDT.getMonth() !== lDTnextMonth.getMonth()) break;
 
             if (i >= firstDay) {
-                curMonth.push(number);
+                pArray.push(number);
                 number++;
             }
-            else curMonth.push('');
+            else pArray.push('');
         }
     }
 
     return (
-        <div className="slide-days">
-            <div className="container-days" >{
-                curMonth.map((num, i) => {
-                    if (gDT.getDate() === num) return <div className="num cur-num" key={i}>{num}</div>;
-                    else return <div className="num" key={i}>{num}</div>;
-                })
-            }</div>
+        <div className="wrap-slide">
+            <div className="slide-days">
+                <div className="container-days">{
+                    prevMonth.map((num, i) => {
+                        if (gDT.getDate() === num) return <div className="num" key={i}>{num}</div>;
+                        else return <div className="num" key={i}>{num}</div>;
+                    })
+                }</div>
+                <div className="container-days">{
+                    curMonth.map((num, i) => {
+                        if (gDT.getDate() === num) return <div className="num cur-num" key={i}>{num}</div>;
+                        else return <div className="num" key={i}>{num}</div>;
+                    })
+                }</div>
+                <div className="container-days">{
+                    nextMonth.map((num, i) => {
+                        if (gDT.getDate() === num) return <div className="num" key={i}>{num}</div>;
+                        else return <div className="num" key={i}>{num}</div>;
+                    })
+                }</div>
+            </div>
         </div>
     );
 }

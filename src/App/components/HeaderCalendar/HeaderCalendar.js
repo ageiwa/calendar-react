@@ -7,8 +7,8 @@ const HeaderCalendar = () => {
             <div className="headbar">
                 <p className="month-and-year">August 2020</p>
                 <div className="btn-control">
-                    <button className="btn">←</button>
-                    <button className="btn">→</button>
+                    <button className="btn" >←</button>
+                    <button className="btn" >→</button>
                 </div>
             </div>
             <div className="days-week">
