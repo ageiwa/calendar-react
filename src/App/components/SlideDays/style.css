@@ -4,15 +4,24 @@
 }
 
 .container-days {
+    padding: 5px;
     width: 400px;
     height: 350px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
 }
 
 .num {
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.cur-num {
+    background-color: #5ea0da;
+
 }
