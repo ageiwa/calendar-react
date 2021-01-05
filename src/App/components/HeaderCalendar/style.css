@@ -18,11 +18,17 @@
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 100%;
-    transition: .3s;
+    transition: border .3s;
+    outline: none;
 }
 
 .btn:hover {
     border: 1px solid #fff;
+}
+
+.btn:active {
+    background-color: #fff;
+    color: #000;
 }
 
 .days-week {
