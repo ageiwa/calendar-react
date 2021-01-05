@@ -1,22 +1,14 @@
 import React from 'react';
 import './style.css';
 
-class SlideDays extends React.Component {
-    constructor(props) {
-        super(props);
+const SlideDays = () => {
+    const gDT = new Date();
+    const curMonth = [];
 
-        this.state = {
-            curMonth: []
-        };
-    }
+    loadNum();
 
-    componentDidMount() {
-        this.loadNum()
-    }
-
-    loadNum() {
-        const dt = new Date();
-        const lDT = new Date(dt.getFullYear(), dt.getMonth(), 1);
+    function loadNum() {
+        const lDT = new Date(gDT.getFullYear(), gDT.getMonth(), 1);
 
         let number = 1,
             firstDay = lDT.getDay() - 1 === -1 ? 6 : lDT.getDay() - 1;
@@ -25,32 +17,24 @@ class SlideDays extends React.Component {
             const lDTnextMonth = new Date(lDT.getFullYear(), lDT.getMonth(), number);
             if (lDT.getMonth() !== lDTnextMonth.getMonth()) break;
 
-            const newCurMonth = this.state.curMonth;
-
             if (i >= firstDay) {
-                newCurMonth.push(number);
+                curMonth.push(number);
                 number++;
             }
-            else newCurMonth.push('');
-
-            this.setState({curMonth: newCurMonth});
+            else curMonth.push('');
         }
     }
 
-    render() {
-        return (
-            <div className="slide-days">
-                <div className="container-days" >{
-                    this.state.curMonth.map((num, i) => {
-                        const dt = new Date();
-
-                        if (dt.getDate() === num) return <div className="num cur-num" key={i}>{num}</div>;
-                        else return <div className="num" key={i}>{num}</div>;
-                    })
-                }</div>
-            </div>
-        );
-    }
+    return (
+        <div className="slide-days">
+            <div className="container-days" >{
+                curMonth.map((num, i) => {
+                    if (gDT.getDate() === num) return <div className="num cur-num" key={i}>{num}</div>;
+                    else return <div className="num" key={i}>{num}</div>;
+                })
+            }</div>
+        </div>
+    );
 }
 
 export default SlideDays;
