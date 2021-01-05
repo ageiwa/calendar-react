@@ -1,64 +1,54 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './style.css';
 
-const SlideDays = () => {
-    const gDT = new Date();
+class SlideDays extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const prevMonth = [];
-    const curMonth = [];
-    const nextMonth = [];
+        this.state = {
+            curMonth: []
+        };
+    }
 
-    let gYY = gDT.getFullYear(),
-        gMM = gDT.getMonth();
+    componentDidMount() {
+        this.loadNum()
+    }
 
-    //genDivs();
-    loadDays(gYY, gMM);
+    loadNum() {
+        const gDT = new Date();
+        const lDT = new Date(gDT.getFullYear(), gDT.getMonth(), 1);
 
-    function loadDays(pYY, pMM) {
-        pMM--;// Чтобы в первый контейнер поместить предыдущий месяц
+        let number = 1,
+            firstDay = lDT.getDay() - 1 === -1 ? 6 : lDT.getDay() - 1;
 
-        for (let i = 0; i < 3; i++) {
-            const dt = new Date(pYY, pMM, 1);
+        for (let i = 0; i < 42; i++) {
+            const lDTnextMonth = new Date(lDT.getFullYear(), lDT.getMonth(), number);
 
-            let dayBegins = dt.getDay() - 1,
-                number = 1;
+            if (lDT.getMonth() !== lDTnextMonth.getMonth()) break;
 
-            if (dayBegins === -1) dayBegins = 6;
+            const newCurMonth = this.state.curMonth;
 
-            let monthArray;
-
-            //Определяем какой массив сейчас будет заполняться
-            if (i === 0) monthArray = prevMonth;
-            else if (i === 1) monthArray = curMonth;
-            else monthArray = nextMonth;
-
-            for (let j = 0; j < 42; j++) {
-                const nextDT = new Date(pYY, pMM, number);
-
-                if (dt.getMonth() !== nextDT.getMonth()) break;
-
-                let day = <div className="day" key={j}></div>;
-
-                if (j >= dayBegins) {
-                    day = <div className="day" key={j}>{number}</div>;
-                    number++;
-                }
-
-                monthArray.push(day);
+            if (i >= firstDay) {
+                newCurMonth.push(number);
+                number++;
             }
+            else newCurMonth.push('');
 
-            number = 1;
-            pMM++;
+            this.setState({curMonth: newCurMonth});
         }
     }
 
-    return (
-        <div className="slide-days">
-            <div className="container-days">{prevMonth}</div>
-            <div className="container-days">{curMonth}</div>
-            <div className="container-days">{nextMonth}</div>
-        </div>
-    );
+    render() {
+        return (
+            <div className="slide-days">
+                <div className="container-days" >{
+                    this.state.curMonth.map((num, i) => {
+                        return <div className="num" key={i}>{num}</div>;
+                    })
+                }</div>
+            </div>
+        );
+    }
 }
 
 export default SlideDays;
