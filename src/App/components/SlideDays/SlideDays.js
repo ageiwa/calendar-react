@@ -29,7 +29,17 @@ const SlideDays = (props) => {
                 }</div>
                 <div className="container-days">{
 
-                    curMonth.map((num, i) => <div className="num" key={i}>{num}</div>)
+                    curMonth.map((num, i) => {
+                        const lDT = new Date(gDT.getFullYear(), gMM);
+
+                        if (gDT.getFullYear() === lDT.getFullYear() && gDT.getMonth() === lDT.getMonth() && gDT.getDate() === num) {
+                            return <div className="num cur-num" key={i}>{num}</div>;
+                        }
+                        else {
+                            if (num === '') return <div className="empty-num" key={i}>{num}</div>;
+                            else return <div className="num" key={i}>{num}</div>;
+                        }
+                    })
                 
                 }</div>
                 <div className="container-days">{
