@@ -30,9 +30,11 @@ const SlideDays = (props) => {
         }
     }
 
+    const style = { marginLeft: props.style };
+    
     return (
         <div className="wrap-slide">
-            <div className="slide-days" ref={props.slideDays}>
+            <div className="slide-days" style={style}>
                 <div className="container-days">{
                     prevMonth.map((num, i) => {
                         if (gDT.getDate() === num) return <div className="num" key={i}>{num}</div>;
