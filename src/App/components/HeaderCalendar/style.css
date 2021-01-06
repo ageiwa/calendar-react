@@ -12,23 +12,17 @@
 }
 
 .btn {
-    color: #fff;
+    color: #bbbbbb;
+    font-size: 20px;
     width: 35px;
     height: 35px;
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 100%;
-    transition: border .3s;
     outline: none;
 }
 
 .btn:hover {
-    border: 1px solid #fff;
-}
-
-.btn:active {
-    background-color: #fff;
-    color: #000;
+    color: #fff;
 }
 
 .days-week {
