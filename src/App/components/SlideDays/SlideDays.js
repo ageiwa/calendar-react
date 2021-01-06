@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const SlideDays = () => {
+const SlideDays = (props) => {
     const gDT = new Date();
 
     const prevMonth = [];
@@ -32,7 +32,7 @@ const SlideDays = () => {
 
     return (
         <div className="wrap-slide">
-            <div className="slide-days">
+            <div className="slide-days" ref={props.slideDays}>
                 <div className="container-days">{
                     prevMonth.map((num, i) => {
                         if (gDT.getDate() === num) return <div className="num" key={i}>{num}</div>;

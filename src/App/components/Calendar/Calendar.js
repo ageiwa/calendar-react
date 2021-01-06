@@ -4,11 +4,13 @@ import HeaderCalendar from '../HeaderCalendar/HeaderCalendar';
 import SlideDays from '../SlideDays/SlideDays';
 
 const Calendar = () => {
+    const slideDaysRef = React.createRef();
+
     return (
         <div className="calendar">
-            <HeaderCalendar />
+            <HeaderCalendar slideDays={slideDaysRef} />
             <div className="wrap-slide">
-                <SlideDays />
+                <SlideDays slideDays={slideDaysRef} />
             </div>
         </div>
     );

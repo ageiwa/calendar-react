@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 import './style.css';
 
-const HeaderCalendar = () => {
+const HeaderCalendar = (props) => {
+    function slide() {
+        const slideDaysRef = props.slideDays;
+
+    }
+
     return (
         <React.Fragment>
             <div className="headbar">
                 <p className="month-and-year">August 2020</p>
                 <div className="btn-control">
-                    <button className="btn">←</button>
-                    <button className="btn">→</button>
+                    <button className="btn" onClick={() => slide()}>←</button>
+                    <button className="btn" onClick={() => slide()}>→</button>
                 </div>
             </div>
             <div className="days-week">
