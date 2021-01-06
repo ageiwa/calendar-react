@@ -1,17 +1,18 @@
 import React from 'react';
-import loadNum from '../../scripts/loadNum.js';
+import loadNum from '../../scripts/loadNum';
 import './style.css';
 
 const SlideDays = (props) => {
     const gDT = new Date();
+    const gMM = props.gMM;
 
     const prevMonth = [];
     const curMonth = [];
     const nextMonth = [];
 
-    loadNum(gDT.getFullYear(), gDT.getMonth()-1, prevMonth);
-    loadNum(gDT.getFullYear(), gDT.getMonth(), curMonth);
-    loadNum(gDT.getFullYear(), gDT.getMonth()+1, nextMonth);
+    loadNum(gDT.getFullYear(), gMM-1, prevMonth);
+    loadNum(gDT.getFullYear(), gMM, curMonth);
+    loadNum(gDT.getFullYear(), gMM+1, nextMonth);
 
     const style = {
         marginLeft: props.mLeft,
