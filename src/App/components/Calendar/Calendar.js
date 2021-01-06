@@ -4,14 +4,23 @@ import HeaderCalendar from '../HeaderCalendar/HeaderCalendar';
 import SlideDays from '../SlideDays/SlideDays';
 
 const Calendar = () => {
-    const [style, setStyle] = useState(undefined);
-    const transfer = (value) => setStyle(value);
+    const [mLeft, setMLeft] = useState(-400);
+    const [transition, setTransition] = useState('margin-left 500ms');
+
+    const transferMLeft = (value) => setMLeft(value);
+    const transferTransition = (value) => setTransition(value);
 
     return (
         <div className="calendar">
-            <HeaderCalendar transferStyle={transfer} />
+            <HeaderCalendar 
+                transferMLeft={transferMLeft}
+                transferTransition={transferTransition} 
+            />
             <div className="wrap-slide">
-                <SlideDays style={style} />
+                <SlideDays 
+                    mLeft={mLeft}
+                    transition={transition}
+                />
             </div>
         </div>
     );

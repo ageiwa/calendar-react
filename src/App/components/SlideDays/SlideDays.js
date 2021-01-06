@@ -30,8 +30,11 @@ const SlideDays = (props) => {
         }
     }
 
-    const style = { marginLeft: props.style };
-    
+    const style = {
+        marginLeft: props.mLeft,
+        transition: props.transition
+    };
+
     return (
         <div className="wrap-slide">
             <div className="slide-days" style={style}>

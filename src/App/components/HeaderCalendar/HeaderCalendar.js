@@ -2,16 +2,23 @@ import React, {useState} from 'react';
 import './style.css';
 
 const HeaderCalendar = (props) => {
-    const [marginLeft, setMarginLeft] = useState(-400);
+    const [calmDown, setCalmDown] = useState(false);
 
     function slide(btn) {
-        if (btn === 0) {
-            setMarginLeft(marginLeft + 400);
-            props.transferStyle(marginLeft + 400);
-        }
-        else if (btn === 1) {
-            setMarginLeft(marginLeft - 400);
-            props.transferStyle(marginLeft - 400);
+        if (!calmDown) {
+            props.transferTransition('margin-left 500ms');
+
+            if (btn === 0) props.transferMLeft(0);
+            else props.transferMLeft(-800);
+
+            setCalmDown(true);
+    
+            setTimeout(() => {
+                props.transferTransition('none');
+                props.transferMLeft(-400);
+
+                setCalmDown(false);
+            }, 500);
         }
     }
 
