@@ -20,7 +20,7 @@ const SlideDays = (props) => {
     };
 
     return (
-        <div className="wrap-slide">
+        <>
             <div className="slide-days" style={style}>
                 <div className="container-days">{
 
@@ -48,7 +48,7 @@ const SlideDays = (props) => {
                 
                 }</div>
             </div>
-        </div>
+        </>
     );
 }
 

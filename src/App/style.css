@@ -4,7 +4,7 @@
     font-family: sans-serif;
 }
 
-body {
+.container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -19,6 +19,8 @@ body {
     background-color: #333438;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
     display: flex;
+    position: relative;
+    overflow: hidden;
 }
 
 .time-date {
@@ -27,8 +29,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
 
 .calendar {
     flex: 1;
+    z-index: 9999;
+}
+
+.sphere {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    filter: blur(35px);
+    border-radius: 100%;
+    position: absolute;
 }
