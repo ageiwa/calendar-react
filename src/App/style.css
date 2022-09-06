@@ -19,8 +19,6 @@
     background-color: #333438;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    position: relative;
-    overflow: hidden;
 }
 
 .time-date {

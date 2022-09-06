@@ -1,28 +1,35 @@
 .headbar {
-    padding-top: 15px;
+    /*padding-top: 15px;
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 15px;*/
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #333438;
 }
 
+.month-and-year {
+    cursor: pointer;
+}
+
 .btn:first-child {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .btn {
+    border: 1px solid transparent;
+    border-radius: 50%;
     color: #bbbbbb;
     font-size: 20px;
     width: 35px;
     height: 35px;
     background-color: transparent;
-    border: 1px solid transparent;
     outline: none;
+    cursor: pointer;
 }
 
 .btn:hover {
+    border: 1px solid #fff;
     color: #fff;
 }
 
