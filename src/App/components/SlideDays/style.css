@@ -1,11 +1,12 @@
 .slide-days {
-    width: 1200px;
-    height: 350px;
+    width: 300%;
+    height: calc(100% - 100px);
     display: flex;
 }
 
 .container-days {
     width: 100%;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);

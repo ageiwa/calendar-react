@@ -1,8 +1,10 @@
 import React from 'react';
-import './style.css';
 import CurrentTime from './components/CurrentTime/CurrentTime';
 import CurrentDate from './components/CurrentDate/CurrentDate';
 import Calendar from './components/Calendar/Calendar';
+
+import './style.css';
+import './media.css';
 
 const App = () => {
     return (

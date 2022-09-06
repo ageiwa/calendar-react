@@ -4,5 +4,6 @@
 
 .wrap-slide {
     width: 400px;
+    height: 100%;
     overflow: hidden;
 }

@@ -1,7 +1,7 @@
 .headbar {
-    /*padding-top: 15px;
+    padding-top: 15px;
     padding-left: 15px;
-    padding-right: 15px;*/
+    padding-right: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +13,7 @@
 }
 
 .btn:first-child {
-    /*margin-right: 10px;*/
+    margin-right: 10px;
 }
 
 .btn {
